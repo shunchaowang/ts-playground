@@ -16,6 +16,7 @@
   "author": "Shunchao Wang",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
     "clean-webpack-plugin": "^4.0.0",
