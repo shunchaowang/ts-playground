@@ -7,3 +7,5 @@ export class Component {
         console.log('Hello');
     }
 }
+
+console.log('im typescript');
