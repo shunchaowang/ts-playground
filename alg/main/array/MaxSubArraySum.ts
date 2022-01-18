@@ -6,11 +6,11 @@
  * @returns the max sum of the sub array
  */
 function maxSumOfSubArray(arr: readonly number[]): number {
-    var maxSum = arr[0]
-    var sum = 0
-    var minSum = 0
-    // iterate through the array, the goal is to find both the max(maxSum) and min sum(minSum) before the current element,
-    // the result will be maxSum - minSum
+    let maxSum = arr[0]
+    let sum = 0
+    let minSum = 0
+    // iterate through the array, get the sum till the current element, the max sum to the current element
+    // will be the sum minus the minimize sum of the prefix arrays before the current node. 
     // eg 1 2 -1 4 -2 3
     arr.forEach(num => {
         sum += num
