@@ -10,9 +10,11 @@
         "jsx": "react",
         "allowJs": true
     },
-    "include": ["src/**/*"],
+    "include": [
+        "src/**/*", "alg/**/*"
+    ],
     "exclude": [
         "**/*.spec.ts",
         "node_modules"
-    ]
+    ],
 }

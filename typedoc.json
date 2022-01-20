@@ -1,0 +1,6 @@
+{
+    "entryPoints": [
+        "alg/main/array/MaxSubArraySum.ts"
+    ],
+    "out": "docs"
+}
