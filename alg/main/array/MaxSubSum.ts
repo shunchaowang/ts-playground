@@ -5,7 +5,7 @@
  * @param arr the int array not empty
  * @returns the max sum of the sub array
  */
-function maxSumOfSubArray(arr: readonly number[]): number {
+function maxSubSum(arr: readonly number[]): number {
     let maxSum = arr[0]
     let sum = 0
     let minSum = 0
@@ -20,4 +20,4 @@ function maxSumOfSubArray(arr: readonly number[]): number {
     return maxSum
 }
 
-export { maxSumOfSubArray }
+export { maxSubSum }
