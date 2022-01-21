@@ -1,4 +1,4 @@
-import { maxSubSum } from "../main/array/MaxSubSum";
+import { maxSubSum } from "../../main/array/MaxSubSum";
 
 describe('find the max sum of sub array', () => {
     const case1 = [-2, 1, -3, 4, -1, 2, 1, -5,]

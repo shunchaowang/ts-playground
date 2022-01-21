@@ -1,7 +1,8 @@
 /**
  * Given an integer array, find the contiguous subarray 
  * (containing at least one number) which has the largest sum and return its sum.
-* A **subarray** is a **contiguous** part of an array.
+ * ---
+ * A **subarray** is a **contiguous** part of an array.
  * @param arr the int array not empty
  * @returns the max sum of the sub array
  */

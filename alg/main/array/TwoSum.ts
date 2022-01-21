@@ -15,6 +15,7 @@ Example 3:
 Input: nums = [3,3], target = 6
 Output: [3,3]
  */
+
 // use hash map, iterate the array, for each element e, check if target - e exists in the map,
 // if existing, one result is found, remove e from the map, this will make sure each element is only used once;
 // if not existing, put e into the map.

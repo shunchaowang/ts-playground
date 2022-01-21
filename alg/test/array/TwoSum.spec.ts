@@ -1,4 +1,4 @@
-import { twoSum } from "../main/array/TwoSum";
+import { twoSum } from "../../main/array/TwoSum";
 
 describe('test suite for two sum', () => {
     const case1 = [2, 7, 11, 15]
