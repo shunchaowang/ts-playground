@@ -38,10 +38,12 @@ export const validParentheses = (s: string): boolean => {
     // 2 edge cases, if the stack is not empty when the iteration is done, it's not valid;
     // if the stack is empty when the encounter a right parenthese, it's not valid.
     // create a map to store the paired parenthese
-    const maps = new Map<string, string>()
-    maps.set(')', '(')
-    maps.set(']', '[')
-    maps.set('}', '{')
+    // try map literal
+    const maps = new Map<string, string>([
+        [')', '('],
+        [']', '['],
+        ['}', '{']
+    ])
 
     const stack = new Stack<string>()
     const chars = [...s]
