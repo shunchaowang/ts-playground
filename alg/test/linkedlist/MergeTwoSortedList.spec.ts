@@ -1,4 +1,4 @@
-import { LinkedNode, toLinkedList, toArray } from '../../main/linkedlist/LinkedList'
+import { toLinkedList, toArray } from '../../main/linkedlist/LinkedList'
 import { mergeTwoSortedList } from '../../main/linkedlist/MergeTwoSortedList'
 
 describe('merge two sorted link list', () => {
