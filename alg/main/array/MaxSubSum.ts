@@ -21,4 +21,40 @@ function maxSubSum(arr: readonly number[]): number {
     return maxSum
 }
 
-export { maxSubSum }
+/**
+ * Given an array of integers of size `n`, calculate the maximum sum of `k` consecutive elements in the array.
+ * - example 1
+ * ```
+ * Input  : arr[] = {100, 200, 300, 400}
+ * k = 2
+ * Output : 700
+ * ```
+ * - example 2
+ * ```
+ * Input: arr[] = {1, 4, 2, 10, 23, 3, 1, 0, 20}
+ * k = 4
+ * Output : 39
+ * We get maximum sum by adding subarray {4, 2, 10, 23} of size 4.
+ * ```
+ * - example 3
+ * Input  : arr[] = {2, 3}
+ * k = 3
+ * Output : Invalid
+ * There is no subarray of size 3 as size of whole array is 2.
+ * ```
+ */
+const maxSubSumOfLength = (arr: readonly number[], length: number): number => {
+    let maxSum = Number.MIN_VALUE
+    if (arr === null || arr === undefined || arr.length < length) return maxSum
+
+    for (let i = 0; i <= arr.length - length; i++) {
+        let max = 0
+        for (let j = 0; j < length; j++) {
+            max += arr[i + j]
+        }
+        maxSum = Math.max(maxSum, max)
+    }
+    return maxSum
+}
+
+export { maxSubSum, maxSubSumOfLength }
