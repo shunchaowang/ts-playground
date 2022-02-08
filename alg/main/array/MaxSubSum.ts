@@ -43,17 +43,26 @@ function maxSubSum(arr: readonly number[]): number {
  * There is no subarray of size 3 as size of whole array is 2.
  * ```
  */
-const maxSubSumOfLength = (arr: readonly number[], length: number): number => {
-    let maxSum = Number.MIN_VALUE
-    if (arr === null || arr === undefined || arr.length < length) return maxSum
-
-    for (let i = 0; i <= arr.length - length; i++) {
-        let max = 0
-        for (let j = 0; j < length; j++) {
-            max += arr[i + j]
-        }
+const maxSubSumOfLength = (arr: readonly number[], length: number): any => {
+    /**
+     * sliding windows to move the pane with the fixed length
+     * first formulate a window of `length`, calculate the sum window
+     * then move the window by steps, minus the 1st element of the wiendow, and add the last element
+     * get the largest sum
+     */
+    if (arr === null || arr === undefined || arr.length < length) return 'invalid'
+    let max = 0
+    let i = 0
+    while (i < length) {
+        max += arr[i++]
+    }
+    let maxSum = max
+    while (i < arr.length) {
+        max -= arr[i - length]
+        max += arr[i++]
         maxSum = Math.max(maxSum, max)
     }
+
     return maxSum
 }
 
