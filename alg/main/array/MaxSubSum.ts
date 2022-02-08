@@ -58,9 +58,8 @@ const maxSubSumOfLength = (arr: readonly number[], length: number): any => {
     }
     let maxSum = max
     while (i < arr.length) {
-        max -= arr[i - length]
-        max += arr[i++]
-        maxSum = Math.max(maxSum, max)
+        max = max - arr[i - length] + arr[i++]
+        if (max > maxSum) maxSum = max
     }
 
     return maxSum
