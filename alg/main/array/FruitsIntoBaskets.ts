@@ -51,19 +51,17 @@ const totalFruits = (fruits: number[]): number => {
     map.set(fruits[right], 1)
     while (right < fruits.length) {
         if (distinct <= 2) {
-            if (distinct === 2) {
-                if (right - left + 1 > maxLength) {
-                    maxLength = right - left + 1
-                }
+            if (right - left + 1 > maxLength) {
+                maxLength = right - left + 1
             }
             right++
-            map.set(right, map.get(right) + 1)
-            if (map.get(right) === 1) {
+            map.set(fruits[right], map.get(fruits[right]) + 1)
+            if (map.get(fruits[right]) === 1) {
                 distinct++
             }
         } else {
-            map.set(left, map.get(left) - 1)
-            if (map.get(left) === 0) {
+            map.set(fruits[left], map.get(fruits[left]) - 1)
+            if (map.get(fruits[left]) === 0) {
                 distinct--
             }
             left++

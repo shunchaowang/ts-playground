@@ -12,4 +12,9 @@ describe('test total fruits into baskets', () => {
     it(`${case2} should have ${expected2}`, () => {
         expect(totalFruits(case2)).toBe(expected2)
     })
+    const case3 = [3, 3, 3, 3, 3, 3]
+    const expected3 = 6
+    it(`${case3} should have ${expected3}`, () => {
+        expect(totalFruits(case3)).toBe(expected3)
+    })
 })

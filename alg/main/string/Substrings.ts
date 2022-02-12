@@ -45,6 +45,7 @@ const longestSubstrWithUniqueChar = (str: string, k: number): string => {
     let maxLength = 0
     map.set(chars[rightIndex], 1)
     while (rightIndex < chars.length) {
+
         if (unique <= k) {
             if (unique === k) {
                 if (rightIndex - leftIndex + 1 > maxLength) {
