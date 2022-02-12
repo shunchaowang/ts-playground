@@ -60,12 +60,12 @@ const longestSubstrWithUniqueChar = (str: string, k: number): string => {
             }
 
         } else { // unique > k
-            leftIndex++
             // the unique needs to be updated if the char at current rightIndex is changing from 0 to 1 in the map
             map.set(chars[leftIndex], map.get(chars[leftIndex]) - 1)
             if (map.get(chars[leftIndex]) === 0) {
                 unique -= 1
             }
+            leftIndex++
         }
 
     }
