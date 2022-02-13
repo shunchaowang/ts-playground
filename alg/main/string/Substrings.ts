@@ -73,4 +73,36 @@ const longestSubstrWithUniqueChar = (str: string, k: number): string => {
     return result
 }
 
-export { longestSubstrWithUniqueChar }
+/**
+ * <h3>sliding window</h3>
+ * Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.
+ * In other words, return `true` if one of `s1`'s permutations is the substring of `s2`.
+ * **Example 1:**
+ * ```
+ * Input: s1 = "ab", s2 = "eidbaooo"
+ * Output: true
+ * Explanation: s2 contains one permutation of s1 ("ba").
+ * ```
+ * **Example 2:**
+ * ```
+ * Input: s1 = "ab", s2 = "eidboaoo"
+ * Output: false
+ ```
+ * check if s1 is the permutation of one sub string of s2
+ * @param s1 the pattern
+ * @param s2 the target
+ * @returns true if s1 is the permutation of substring of s2, otherwise false
+ */
+const checkStringPermutation = (s1: string, s2: string): boolean => {
+    // another word we need to find the substring of s2 containing k of a, j of b, etc...
+    // sliding window of the fixed width of the length of s1, the uniqueness here is that 
+    // we move the left and right index the same time if it's not matching
+    // edge case 
+    if (s1 === null || s2 === null || s2.length < s1.length) return false
+    let left = 0
+    let right = s1.length - 1
+
+    return false
+}
+
+export { longestSubstrWithUniqueChar, checkStringPermutation }
