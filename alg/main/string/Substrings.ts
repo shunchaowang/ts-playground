@@ -87,7 +87,12 @@ const longestSubstrWithUniqueChar = (str: string, k: number): string => {
  * ```
  * Input: s1 = "ab", s2 = "eidboaoo"
  * Output: false
- ```
+ * ```
+ * **Containts:**
+ * ```
+ * 1 <= s1.length, s2.length <= 10000
+ * s1 and s2 consist of lowercase english letters
+ * 
  * check if s1 is the permutation of one sub string of s2
  * @param s1 the pattern
  * @param s2 the target
@@ -99,10 +104,39 @@ const checkStringPermutation = (s1: string, s2: string): boolean => {
     // we move the left and right index the same time if it's not matching
     // edge case 
     if (s1 === null || s2 === null || s2.length < s1.length) return false
-    let left = 0
-    let right = s1.length - 1
-
+    // assume the string only contains the alphabets encoding in 8 bits, create an array of 26
+    // to store all counts for the individual character,
+    // first iterate s1 to set the occurence of each character,
+    // then sliding the window on s2, minus the character encountered,
+    // if the array still all 0, we found the permutation. 
+    // utf-8 encoding starts at 97 as 'a', 'z' is 97+25=122.
+    const NO_OF_LETTER = 26
+    let count = new Array<number>(NO_OF_LETTER)
+    count.fill(0)
+    // iterate s1
+    for (let i = 0; i < s1.length; i++) {
+        count[s1.charCodeAt(i) - 97]++
+    }
+    // create the sliding windows
+    let start = 0
+    let end = s1.length - 1
+    let count2 = new Array<number>(NO_OF_LETTER)
+    count2.fill(0)
+    while (end < s2.length) {
+        for (let j = start; j <= end; j++) {
+            count2[s2.charCodeAt(j) - 97]++
+        }
+        if (arrayEquals(count, count2)) return true
+        count2.fill(0)
+        start++
+        end++
+    }
     return false
+}
+
+const arrayEquals = (a: any[], b: any[]): boolean => {
+    return a.length === b.length
+        && a.every((v, i) => v === b[i])
 }
 
 export { longestSubstrWithUniqueChar, checkStringPermutation }

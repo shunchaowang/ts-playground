@@ -1,4 +1,4 @@
-import { longestSubstrWithUniqueChar } from '../../main/string/Substrings'
+import { longestSubstrWithUniqueChar, checkStringPermutation } from '../../main/string/Substrings'
 
 describe('test the longest sub str with k unique characters', () => {
     const case1 = 'aabbcc'
@@ -24,5 +24,21 @@ describe('test the longest sub str with k unique characters', () => {
     it(`the longest substr of ${case3} with ${k3} unique characters should be ${expected3}`, () => {
         const actual = longestSubstrWithUniqueChar(case3, k3)
         expect(actual).toBe(expected3)
+    })
+})
+
+describe('test string permutation', () => {
+    const case1_s1 = 'ab'
+    const case1_s2 = 'eidboaoo'
+    const case1_expected = false
+    it(`test if ${case1_s1} is a permutation of ${case1_s2} should be ${case1_expected}`, () => {
+        expect(checkStringPermutation(case1_s1, case1_s2)).toBe(case1_expected)
+    })
+
+    const case2_s1 = 'ab'
+    const case2_s2 = 'eidbaooo'
+    const case2_expected = true
+    it(`test if ${case2_s1} is a permutation of ${case2_s2} should be ${case2_expected}`, () => {
+        expect(checkStringPermutation(case2_s1, case2_s2)).toBe(case2_expected)
     })
 })
