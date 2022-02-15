@@ -1,4 +1,6 @@
 /**
+ * <h3>Sliding Window</h3>
+ * <h4>Hard</h4>
  * **Google Interview**
  * Given a string you need to print longest possible substring that has exactly M unique characters. 
  * If there are more than one substring of longest possible length, then print any one of them.
@@ -75,6 +77,7 @@ const longestSubstrWithUniqueChar = (str: string, k: number): string => {
 
 /**
  * <h3>sliding window</h3>
+ * <h4>Medium</h4>
  * Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.
  * In other words, return `true` if one of `s1`'s permutations is the substring of `s2`.
  * **Example 1:**
