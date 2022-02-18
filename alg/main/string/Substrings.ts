@@ -178,6 +178,15 @@ const checkStringPermutation = (s1: string, s2: string): boolean => {
  * @returns the minimum substring or empty string if not existing
  */
 const minimumWindow = (s: string, t: string): string => {
+    if (s.length < t.length) return ''
+    const NO_OF_LETTER = 26
+    const patternCount = new Array<number>(NO_OF_LETTER)
+    patternCount.fill(0)
+    const sourceCount = new Array<number>(NO_OF_LETTER)
+    sourceCount.fill(0)
+    for (let i = 0; i < t.length; i++) {
+        patternCount[t.charCodeAt(i) - 97]++
+    }
     return ''
 }
 
