@@ -184,15 +184,40 @@ const minimumWindow = (s: string, t: string): string => {
     patternCount.fill(0)
     const sourceCount = new Array<number>(NO_OF_LETTER)
     sourceCount.fill(0)
+    // init the array for the letters with the occurence
     for (let i = 0; i < t.length; i++) {
         patternCount[t.charCodeAt(i) - 97]++
     }
+
+    // to find the minimum window, it's easy to induct that it must start with a letter 
+    // from the pattern
+    let minWindow = Number.MAX_VALUE
+    let minSubstring = ''
+    let start = 0
+    while (patternCount[s.charCodeAt(start) - 97] === 0) {
+        start++
+    }
+
+    // now i is at the 1st character pattern contains
+    let nextStart = start + 1 // next start will be the next letter which pattern contains
+    let i = start
+    while (i < s.length) {
+        sourceCount[s.charCodeAt(start) - 97]++
+    }
+
+
+
     return ''
 }
 
 const arrayEquals = (a: any[], b: any[]): boolean => {
     return a.length === b.length
         && a.every((v, i) => v === b[i])
+}
+
+const arrayContains = (source: any[], target: any[]): boolean => {
+    return source.length >= target.length &&
+        target.every((v, i) => source[i] >= v)
 }
 
 export { longestSubstrWithUniqueChar, checkStringPermutation, minimumWindow }
