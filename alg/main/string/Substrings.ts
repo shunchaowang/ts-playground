@@ -177,37 +177,53 @@ const checkStringPermutation = (s1: string, s2: string): boolean => {
  * @param t the pattern to match
  * @returns the minimum substring or empty string if not existing
  */
-const minimumWindow = (s: string, t: string): string => {
-    if (s.length < t.length) return ''
-    const NO_OF_LETTER = 26
-    const patternCount = new Array<number>(NO_OF_LETTER)
-    patternCount.fill(0)
-    const sourceCount = new Array<number>(NO_OF_LETTER)
-    sourceCount.fill(0)
+const minimumWindow = (source: string, pattern: string): string => {
+    if (source.length < pattern.length) return ''
+    const NO_OF_LETTER = 256
+    const patternCount = Array.from({ length: NO_OF_LETTER }, () => 0)
+    const sourceCount = Array.from({ length: NO_OF_LETTER }, () => 0)
+
     // init the array for the letters with the occurence
-    for (let i = 0; i < t.length; i++) {
-        patternCount[t.charCodeAt(i) - 97]++
+    for (let i = 0; i < pattern.length; i++) {
+        patternCount[pattern.charCodeAt(i)]++
     }
 
     // to find the minimum window, it's easy to induct that it must start with a letter 
     // from the pattern
     let minWindow = Number.MAX_VALUE
-    let minSubstring = ''
+    let minStart = -1
     let start = 0
-    while (patternCount[s.charCodeAt(start) - 97] === 0) {
-        start++
+    let count = 0
+
+    for (let j = 0; j < source.length; j++) {
+        sourceCount[source.charCodeAt(j)]++
+
+        // if pattern contains source[j], we need to count it, once the count == pattern.length, we found the window
+        if (sourceCount[source.charCodeAt(j)] <= patternCount[source.charCodeAt(j)]) count++
+
+        if (count === pattern.length) { // found one match
+
+            // now it's time to shrink from the beginning to reduce the window
+            while (patternCount[source.charCodeAt(start)] === 0 ||
+                sourceCount[source.charCodeAt(start)] > patternCount[source.charCodeAt(start)]) {
+                // if source contains more start then the pattern minus 1
+                if (sourceCount[source.charCodeAt(start)] > patternCount[source.charCodeAt(start)]) {
+                    sourceCount[source.charCodeAt(start)]--
+                }
+                start++
+            }
+            // update the minimum window based on j and start position
+            const window = j - start + 1
+            if (window < minWindow) {
+                minWindow = window
+                minStart = start
+            }
+        }
     }
 
-    // now i is at the 1st character pattern contains
-    let nextStart = start + 1 // next start will be the next letter which pattern contains
-    let i = start
-    while (i < s.length) {
-        sourceCount[s.charCodeAt(start) - 97]++
-    }
+    if (minStart === -1) return ''
 
-
-
-    return ''
+    return source.substring(minStart, minStart + minWindow)
 }
 
 const arrayEquals = (a: any[], b: any[]): boolean => {

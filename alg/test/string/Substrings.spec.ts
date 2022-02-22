@@ -1,4 +1,4 @@
-import { longestSubstrWithUniqueChar, checkStringPermutation } from '../../main/string/Substrings'
+import { longestSubstrWithUniqueChar, checkStringPermutation, minimumWindow } from '../../main/string/Substrings'
 
 describe('test the longest sub str with k unique characters', () => {
     const case1 = 'aabbcc'
@@ -40,5 +40,14 @@ describe('test string permutation', () => {
     const case2_expected = true
     it(`test if ${case2_s1} is a permutation of ${case2_s2} should be ${case2_expected}`, () => {
         expect(checkStringPermutation(case2_s1, case2_s2)).toBe(case2_expected)
+    })
+})
+
+describe('test the minimum window of substring', () => {
+    const s1 = "ADOBECODEBANC"
+    const t1 = "ABC"
+    const expected1 = 'BANC'
+    it(`${s1} should have the minimum window for ${t1} of ${expected1}`, () => {
+        expect(minimumWindow(s1, t1)).toBe(expected1)
     })
 })
