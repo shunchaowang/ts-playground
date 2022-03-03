@@ -231,9 +231,4 @@ const arrayEquals = (a: any[], b: any[]): boolean => {
         && a.every((v, i) => v === b[i])
 }
 
-const arrayContains = (source: any[], target: any[]): boolean => {
-    return source.length >= target.length &&
-        target.every((v, i) => source[i] >= v)
-}
-
 export { longestSubstrWithUniqueChar, checkStringPermutation, minimumWindow }

@@ -8,7 +8,7 @@ export class LinkedNode<T> {
     }
 }
 
-// we add a head as a entry point
+// we add a head as a entry point, but return head.next
 export function toLinkedList<T>(values: T[]): LinkedNode<T> {
 
     const head = new LinkedNode<T>()

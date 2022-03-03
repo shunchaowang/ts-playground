@@ -5,3 +5,8 @@ export { mergeTwoSortedList as linkedListMergeTwoSortedList } from './linkedlist
 export { maxStockProfit as arrayMaxStockProfit } from './array/MaxStockProfit'
 export { binarySearch as arrayBinarySearch, searchInsert as arraySearchInsert } from './array/Search'
 export { firstBadVersion as arrayFirstBadVersion } from './array/FirstBadVersion'
+export { middleOfLinkedList } from './linkedlist/MiddleOfLinkedList'
+export { happyNumber } from './misc/Number'
+export { circularArrayLoop } from './linkedlist/CircularArrayLoop'
+export { longestSubstrWithUniqueChar, checkStringPermutation, minimumWindow } from './string/Substrings'
+export { quickSort } from './array/Sorting'
